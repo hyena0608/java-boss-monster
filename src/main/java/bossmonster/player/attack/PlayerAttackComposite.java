@@ -7,8 +7,10 @@ import bossmonster.player.attack.physical.PlayerDefaultPhysicalAttack;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-import static bossmonster.player.PlayerAttackType.*;
+import static bossmonster.player.PlayerAttackType.MAGICAL;
+import static bossmonster.player.PlayerAttackType.PHYSICAL;
 
 public class PlayerAttackComposite {
 
@@ -20,6 +22,11 @@ public class PlayerAttackComposite {
     }
 
     public Attack attack(final PlayerAttackType playerAttackType) {
-        return skills.getOrDefault(playerAttackType, null);
+        final Attack attack = skills.getOrDefault(playerAttackType, null);
+        if (Objects.isNull(attack)) {
+            throw new IllegalArgumentException("[ERROR] 플레이어에게 맞는 공격 타입이 존재하지 않습니다.");
+        }
+
+        return attack;
     }
 }

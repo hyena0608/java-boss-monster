@@ -8,7 +8,7 @@ public class PlayerDefaultPhysicalAttack implements Attack {
 
     private static final Damage DAMAGE = new Damage(10);
     private static final MagicPoint NEED_MP = MagicPoint.ZERO;
-    private static final MagicPoint HEAL_MP = new MagicPoint(10);
+    private static final MagicPoint HEAL_MP = MagicPoint.newInstance(10);
 
     @Override
     public Damage getAttackDamage() {

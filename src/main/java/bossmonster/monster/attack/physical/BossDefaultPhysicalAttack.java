@@ -14,7 +14,7 @@ public class BossDefaultPhysicalAttack implements Attack {
 
     @Override
     public Damage getAttackDamage() {
-        return new Damage(new Random().nextInt(MAX_DAMAGE));
+        return new Damage(new Random().nextInt(0, MAX_DAMAGE + 1));
     }
 
     @Override
